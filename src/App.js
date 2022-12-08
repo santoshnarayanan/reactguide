@@ -26,7 +26,6 @@ function App() {
 
   return (
     <div>
-      <h2>Lets get started</h2>
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
