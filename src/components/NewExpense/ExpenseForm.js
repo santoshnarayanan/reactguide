@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import './ExpenseForm.css'
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 
     // ! value is stored as string for numbers and date
     const [enteredTitle, setEnteredTitle] = useState('');
@@ -29,18 +29,6 @@ const ExpenseForm = () => {
     };
 
     const amountChangeHandler = (event) => {
-        setEnteredDate(event.target.value);
-        // setUserInput({
-        //     ...userInput,
-        //     setEnteredDate:event.target.value,
-        // });
-        // setUserInput((prevState)=>{
-        //     return {...prevState, setEnteredDate:event.target.value};
-        // });
-
-    };
-
-    const dateChangeHandler = (event) => {
         setEnteredAmount(event.target.value);
         // setUserInput({
         //     ...userInput,
@@ -48,6 +36,18 @@ const ExpenseForm = () => {
         // });
         // setUserInput((prevState)=>{
         //     return {...prevState, setEnteredAmount:event.target.value};
+        // });
+
+    };
+
+    const dateChangeHandler = (event) => {
+        setEnteredDate(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     setEnteredDate:event.target.value,
+        // });
+        // setUserInput((prevState)=>{
+        //     return {...prevState, setEnteredDate:event.target.value};
         // });
     };
 
@@ -60,10 +60,11 @@ const ExpenseForm = () => {
             date:new Date(enteredDate)
         };
 
-        console.log(expenseData);
+        //console.log(expenseData);
+        props.onSaveExpenseData(expenseData);
         setEnteredTitle('');
-        setEnteredDate('');
         setEnteredAmount('');
+        setEnteredDate('');
     };
 
     return (
