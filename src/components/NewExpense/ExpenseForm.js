@@ -5,20 +5,41 @@ import './ExpenseForm.css'
 const ExpenseForm = () => {
 
     // ! value is stored as string for numbers and date
-    const [enteredTitle, setEnteredTitle] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDate, setEnteredDate] = useState('');
+    //const [enteredTitle, setEnteredTitle] = useState('');
+    //const [enteredAmount, setEnteredAmount] = useState('');
+    //const [enteredDate, setEnteredDate] = useState('');
+
+    //! use one state for three variables
+    const [userInput, setUserInput] = useState({
+        enteredTitle:'',
+        enteredAmount:'',
+        enteredDate:''
+    });
+
 
     const titleChangeHandler = (event) => {
-        setEnteredTitle(event.target.value);
+        //setEnteredTitle(event.target.value);
+        setUserInput({
+            ...userInput,
+            enteredTitle:event.target.value,
+        })
     };
 
     const amountChangeHandler = (event) => {
-        setEnteredDate(event.target.value);
+        //setEnteredDate(event.target.value);
+        setUserInput({
+            ...userInput,
+            setEnteredDate:event.target.value,
+        })
+
     };
 
     const dateChangeHandler = (event) => {
-        setEnteredAmount(event.target.value);
+        //setEnteredAmount(event.target.value);
+        setUserInput({
+            ...userInput,
+            setEnteredAmount:event.target.value,
+        })
     };
 
     return (
